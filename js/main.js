@@ -1252,7 +1252,7 @@ function getDevices(override){
 										});
 									}
 
-									
+									var slideTimer = 0;
 									if(parseFloat(device['MaxDimLevel'])==100){
 										$( ".slider"+device['idx'] ).slider({
 											value:device['Level'],
@@ -1261,7 +1261,14 @@ function getDevices(override){
 											max:100,
 											slide: function( event, ui ) {
 												sliding = true;
-												slideDevice($(this).data('light'),ui.value);
+
+                                                var $this = $(this);
+
+												clearTimeout(slideTimer);
+												slideTimer = setTimeout(function() {
+                                                    slideDevice($this.data('light'),ui.value);
+												}, config.slider_timeout);
+
 											},
 											change:function( event, ui ) {
 												sliding = true;
