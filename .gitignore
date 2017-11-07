@@ -1,3 +1,4 @@
+# General
 /custom/CONFIG.js
 /custom/graph_vb.js
 /custom/json_vb.js
@@ -9,3 +10,40 @@
 /custom_3
 /index3.html
 /custom_2/CONFIG_DEFAULT.js
+
+# Cache / index / padding files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+thumbs.db
+
+# Generated sources
+*.map
+*.min.js
+*.min.css
+
+# Local configuration files
+.idea
+
+# NPM
+/node_modules/
+
+# Logs
+*.log
+*.log.gz
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
