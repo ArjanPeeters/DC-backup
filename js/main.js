@@ -1646,3 +1646,16 @@ function getDevices(override){
 		if(typeof(_DEBUG)=='undefined' || _DEBUG===false) setTimeout(function(){ getDevices(); },(settings['domoticz_refresh']*1000));
 	}
 }
+
+
+// Cordova stuff
+document.addEventListener("deviceready", function() {
+	document.addEventListener("backbutton", function() {
+		if ( confirm('Afsluiten?') ) {
+            navigator.app.exitApp();
+		} else {
+			location.reload(true);
+		}
+		//navigator.notification.confirm(message, confirmCallback, [title], [buttonLabels])
+	}, false);
+}, false);
