@@ -1223,7 +1223,6 @@ function getDevices(override){
 										
 									html+='</div>';
 
-
 									$('div.block_'+idx).html(html);
 									addHTML=false;
 									

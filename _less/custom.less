@@ -7,6 +7,11 @@ a, button, .btn, label, .ui-slider-handle {
   -webkit-touch-callout: none !important;
 }
 
+/* kollomen */
+[data-id="UNKNOWN"] {
+  border-bottom: 1px solid #FFF !important;
+}
+
 /* Rows / cols */
 .col-data {
   padding-top: 5px;
@@ -19,7 +24,7 @@ a, button, .btn, label, .ui-slider-handle {
 
 div.mh {
   height: 70px !important;
-  border-bottom: 1px solid #222 !important;
+/*  border-bottom: 1px solid #222 !important; */
 }
 
 .transbg {
@@ -39,6 +44,33 @@ div.mh {
   }
 }
 
+/* Aanwezig */
+[data-id="154"] {
+
+  .btn-group {
+    position: absolute !important;
+    right: -5px;
+    top: 0;
+
+    > .btn {
+    padding: 6px 10px !important;
+    }
+  }
+
+
+  .btn-group>.btn:first-child {
+    display: none;
+  }
+
+  .btn-group>.btn:nth-child(2) {
+    border-radius: 6px 0 0 6px !important;
+  }
+
+  .btn-group>.btn:last-child {
+    border-radius: 0 6px 6px 0 !important;
+  }
+}
+
 /* Radio play/pause buttons */
 [data-id="150"] {
 
@@ -48,7 +80,7 @@ div.mh {
 
   .btn-group {
     position: absolute !important;
-    right: -66px;
+    right: -5px;
     top: 0;
 
     > .btn {
@@ -139,5 +171,9 @@ img.icon {
 .fa-lightbulb-o:before {font-size: 36px;}
 .col-data .title {font-size: 18px; font-weight: normal;}
 .col-data {margin-left: 15px;}
-.fa-home:before {font-size: 32px;}
-.fa-home.off {color: white;}
+.fa-power-off:before {font-size: 30px; color: white}
+.fa-cutlery:before {font-size: 30px; color: white}
+.fa-television:before {font-size: 30px; color: white}
+.fa-fire:before {font-size: 30px; color: white}
+.fa-toggle-on:before {font-size: 30px; color: white}
+.fa-sign-out:before {font-size: 30px; color: white}
