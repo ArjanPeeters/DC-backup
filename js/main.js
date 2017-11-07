@@ -11,11 +11,10 @@ var standbyActive=false;
 var standbyTime=0;
 var swipebackTime=0;
 var audio = {};
-var screens = {}
-var columns = {}
-var columns_standby = {}
-var blocks = {}
-var defaultcolumns = true;
+var screens = {};
+var columns = {};
+var columns_standby = {};
+var blocks = {};
 var req;
 var slide;
 var sliding = false;
@@ -1225,7 +1224,9 @@ function getDevices(override){
 
 									$('div.block_'+idx).html(html);
 									addHTML=false;
-									
+
+                                    var slideTimer = 0;
+
 									if(device['SubType']=='RGBW' || device['SubType']=='RGBWW'){
 										$(".rgbw").spectrum({
 											color: Cookies.get('rgbw_'+idx)
@@ -1240,19 +1241,26 @@ function getDevices(override){
 											
 											sliding=true;
 											var url = settings['domoticz_ip']+'/json.htm?type=command&param=setcolbrightnessvalue&idx='+curidx+'&hue='+hue.h+'&brightness='+hue.b+'&iswhite='+bIsWhite;
-											$.ajax({
-												url: url+'&jsoncallback=?',
-												type: 'GET',async: false,contentType: "application/json",dataType: 'jsonp'
-											});
+
+                                            clearTimeout(slideTimer);
+                                            slideTimer = setTimeout(function() {
+                                            	console.warn('colorpicker set to', hue.h)
+                                                $.ajax({
+                                                    url: url + '&jsoncallback=?',
+                                                    type: 'GET',
+                                                    async: false,
+                                                    contentType: "application/json",
+                                                    dataType: 'jsonp'
+                                                });
+                                            }, config.slider_timeout);
 										});
-										
+
 										$(".rgbw").on('hide.spectrum', function(e, tinycolor) { 
 											sliding=false;
 											getDevices(true);
 										});
 									}
 
-									var slideTimer = 0;
 									if(parseFloat(device['MaxDimLevel'])==100){
 										$( ".slider"+device['idx'] ).slider({
 											value:device['Level'],

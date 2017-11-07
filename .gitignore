@@ -11,6 +11,12 @@
 /index3.html
 /custom_2/CONFIG_DEFAULT.js
 
+# App
+/app/platforms
+/app/plugins
+/app/node_modules
+/app/hooks
+
 # Cache / index / padding files
 .DS_Store
 .AppleDouble
