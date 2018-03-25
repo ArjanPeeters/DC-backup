@@ -10,7 +10,7 @@
 		<meta name="author" content="Rob Geerts">
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-capable" content="yes">
-		
+
 		<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon" />
 		<link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-touch-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-touch-icon-60x60.png">
@@ -29,7 +29,7 @@
 		<meta name="msapplication-square150x150logo" content="img/favicon/mediumtile.png" />
 		<meta name="msapplication-wide310x150logo" content="img/favicon/widetile.png" />
 		<meta name="msapplication-square310x310logo" content="img/favicon/largetile.png" />
-       
+
        	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<link href="fonts/opensans/open-sans.css" rel="stylesheet" type="text/css">
@@ -37,29 +37,28 @@
 		<link href="vendor/jquery/jquery-ui.css" rel="stylesheet">
 		<link href="vendor/morrisjs/morris.css" rel="stylesheet">
 		<link href="vendor/spectrum/spectrum.css" rel="stylesheet">
-		
+
 		<script src="vendor/head.js"></script>
-		<script src="cordova.js"></script>
 		<title>Dashticz</title>
 
 	</head>
 
 	<body id="page-top">
-	
+
 		<div class="swiper-container">
 			<div class="contents swiper-wrapper"> </div>
         	<div class="swiper-pagination"></div>
 		</div>
 
 		<script>
-			var dashtype=1;	
-			
+			var dashtype=1;
+
 			//DO NOT EDIT BELOW
 			var customfolder = 'custom';
 			if(typeof(dashtype)!=='undefined' && parseFloat(dashtype)>1){
 				customfolder = 'custom_'+dashtype;
 			}
-			
+
             var cache = new Date().getTime();
 			head.load(
 				"vendor/jquery/jquery.min.js",

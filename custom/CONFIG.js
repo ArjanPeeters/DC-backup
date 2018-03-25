@@ -1,13 +1,13 @@
 var config = {};
 config['domoticz_ip'] = 'http://192.168.2.3:8080';
 config['app_title'] = 'PeeterSmit';
-config['domoticz_refresh'] = '60';
-config['dashticz_refresh'] = '360';
+config['domoticz_refresh'] = '5';
+config['dashticz_refresh'] = '60';
 config['default_news_url'] = 'http://www.nu.nl/rss/algemeen';
 config['news_scroll_after'] = '7';
 config['standby_after'] = 0;
-config['auto_swipe_back_to'] = 1;
-config['auto_swipe_back_after'] = '30';
+config['auto_swipe_back_to'] = 0;
+config['auto_swipe_back_after'] = '120';
 config['auto_slide_pages'] = 0;
 config['slide_effect'] = 'slide';
 config['language'] = 'nl_NL';
@@ -30,7 +30,7 @@ config['host_nzbget'] = 0;
 config['spot_clientid'] = '387aa87485614002b831c95578969df2';
 config['selector_instead_of_buttons'] = 0;
 config['auto_positioning'] = 0;
-config['use_favorites'] = 1;
+config['use_favorites'] = 0;
 config['last_update'] = 0;
 config['hide_topbar'] = 1;
 config['hide_seconds'] = 1;
@@ -48,17 +48,17 @@ buttons.buienradar = {
   width:12,
   isimage:true,
   refreshimage:30000,
-  image: 'http://api.buienradar.nl/image/1.0/RadarMapNL?w=300&h=300',
+  image: 'http://api.buienradar.nl/image/1.0/RadarMapNL?w=600&h=600',
   url: 'http://www.buienalarm.nl/widget/graphic?lat=52.38084&lon=4.63683&title=Haarlem&color=4395c7'
 };
 
-/*buttons.webcam = {
+buttons.webcam = {
   width: 12,
   isimage: true,
   refresh: 2000,
   image: 'http://192.168.2.7:8081/Cam/cam_pic.php'
 }
-*/
+
 // Scenes
 var blocks = {};
 
@@ -92,6 +92,14 @@ blocks['s6'] = {
   icon: 'fa-fire'
 }; // Koken
 
+blocks['s12'] = {
+  width: 12,
+  hide_data: true,
+  icon: 'fa-bed'
+}; // Beneden uit
+
+
+
 // Schakelaars
 
 blocks[17] = {
@@ -121,29 +129,43 @@ blocks[102] = {
 
 // sensoren
 blocks[125] = {
-  width: 12,
+  width: 6,
   hide_data: true
-};
+}; // raam keuken
 
 blocks[130] = {
-  width: 12,
+  width: 6,
   hide_data: true
-};
+}; // raam daan
 
-blocks[135] = {
+blocks[203] = {
   width: 12,
   hide_data: true
-};
+}; // raam slaapkamer
 
-blocks[140] = {
-  width: 12,
+blocks[198] = {
+  width: 6,
   hide_data: true
-};
+}; // raam fenna
 
 blocks[145] = {
-  width: 12,
+  width: 6,
   hide_data: true
-};
+}; // raam Sanne
+
+blocks[157] = {
+  width: 6,
+  hide_data: true,
+  title: 'deur'
+}; //garage deur
+
+blocks[158] = {
+  width: 6,
+  hide_data: true,
+  title: 'overhead',
+  playsoundOn: 'sounds/doorbell.mp3',
+  gotoslide: 3
+}; //garage achterdeur
 
 blocks[150] = {
   width: 12,
@@ -175,6 +197,11 @@ blocks['blocktitle_3'] = {
   title: 'Sensors'
 };
 
+blocks['blocktitle_4'] = {
+  type: 'blocktitle',
+  title: 'Garage'
+};
+
 // kalenders
 var calendars = {};
 calendars.business = { maxitems: 5, url: 'https://calendar.google.com/calendar/', icalurl: 'https://calendar.google.com/calendar/' };
@@ -194,13 +221,14 @@ columns[1] = {
     's3',
     's4',
     's6',
+    's12',
     's2',
     150
   ]
 };
 
 columns[2] = {
-  width: 6,
+  width: 5,
   blocks: [
     'blocktitle_2',
     81,
@@ -212,46 +240,56 @@ columns[2] = {
 };
 
 columns[3] = {
-  width: 3,
+  width: 4,
   blocks: [
     'blocktitle_3',
     125,
     130,
-    135,
-    140,
     145,
+    198,
+    203,
+    'blocktitle_4',
+    157,
+    158,
     154
   ]
 };
 
 columns[4] = {
-  width: 4,
+  width: 6,
   blocks: [
-    'clock',
-    'sunrise',
     buttons.buienradar
   ]
 };
 
 columns[5] = {
-  width: 8,
+  width: 6,
   blocks: [
+    'clock',
+    'sunrise',
     'currentweather_big',
     'weather',
-    buttons.webcam
   ]
 };
 
 columns[6] = {
-  Width: 4,
+  width: 12,
   blocks: [
-    'stationsclock',
+    buttons.webcam
+  ]
+}
+
+/*
+columns[7] = {
+  width: 8,
+  blocks: [
     buttons.buienradar
   ]
 };
 
-columns[7] = {
-  width: 8,
+
+columns[8] = {
+  width: 4,
   blocks: [
     's2',
     'blocktitle_3',
@@ -262,15 +300,9 @@ columns[7] = {
     145
   ]
 };
-
+*/
 
 var screens = {}
-
-//screens['slaapkamer'] = {}
-//screens['slaapkamer']['maxwidth'] = 1280;
-//screens['slaapkamer']['maxheight'] = 800;
-//screens['slaapkamer'][1] = {}
-//screens['slaapkamer'][1]['columns'] = [6,7]
 
 screens['default'] = {}
 screens['default']['maxwidth'] = 1920;
@@ -279,3 +311,12 @@ screens['default'][1] = {}
 screens['default'][1]['columns'] = [1,2,3]
 screens['default'][2] = {}
 screens['default'][2]['columns'] = [4,5]
+screens['default'][3] = {}
+screens['default'][3]['columns'] = [6]
+/*
+screens['tablet'] = {}
+screens['tablet']['maxwidth'] = 1280;
+screens['tablet']['maxheight'] = 800;
+screens['tablet'][1] = {}
+screens['tablet'][1]['columns'] = [7,8]
+*/
