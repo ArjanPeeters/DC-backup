@@ -56,7 +56,27 @@ buttons.webcam = {
   width: 12,
   isimage: true,
   refresh: 2000,
-  image: 'http://192.168.2.7:8081/Cam/cam_pic.php'
+  image: 'http://127.0.0.1:7979/axis-cgi/jpg/image.cgi?camera=2&resolution=640x360'
+}
+
+buttons.webcam1 = {
+  width: 12,
+  isimage: true,
+  refresh: 2000,
+  image: 'http://127.0.0.1:7979/axis-cgi/jpg/image.cgi?camera=1&resolution=640x360'
+}
+
+buttons.webcam2 = {
+  width: 12,
+  isimage: true,
+  refresh: 2000,
+  image: 'http://127.0.0.1:7979/axis-cgi/jpg/image.cgi?camera=3&resolution=640x360'
+}
+buttons.webcam3 = {
+  width: 12,
+  isimage: true,
+  refresh: 2000,
+  image: 'http://127.0.0.1:7979/axis-cgi/jpg/image.cgi?camera=4&resolution=640x360'
 }
 
 // Scenes
@@ -173,6 +193,11 @@ blocks[150] = {
   icon: 'fa-music fa-x2'
 }; //radio
 
+blocks[242] = {
+  width: 12,
+  title: ''
+}; //radio selector
+
 blocks[154] = {
   width: 12,
   title: '',
@@ -222,8 +247,7 @@ columns[1] = {
     's4',
     's6',
     's12',
-    's2',
-    150
+    's2'
   ]
 };
 
@@ -235,7 +259,9 @@ columns[2] = {
     51,
     65,
     102,
-    17
+    17,
+    150,
+    242
   ]
 };
 
@@ -273,9 +299,18 @@ columns[5] = {
 };
 
 columns[6] = {
-  width: 12,
+  width: 6,
   blocks: [
-    buttons.webcam
+    buttons.webcam,
+    buttons.webcam1
+  ]
+};
+
+columns[7] = {
+  width: 6,
+  blocks: [
+    buttons.webcam2,
+    buttons.webcam3
   ]
 }
 
@@ -312,7 +347,7 @@ screens['default'][1]['columns'] = [1,2,3]
 screens['default'][2] = {}
 screens['default'][2]['columns'] = [4,5]
 screens['default'][3] = {}
-screens['default'][3]['columns'] = [6]
+screens['default'][3]['columns'] = [6,7]
 /*
 screens['tablet'] = {}
 screens['tablet']['maxwidth'] = 1280;

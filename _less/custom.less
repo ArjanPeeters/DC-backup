@@ -83,6 +83,38 @@ div.mh {
   }
 }
 
+/* radio selector */
+[data-id="242"] {
+
+  .fa-lightbulb-o {
+    display: none;
+  }
+
+  .btn-group {
+    position: absolute !important;
+    right: -5px;
+    top: 0;
+
+    > .btn {
+    padding: 6px 10px !important;
+    }
+  }
+
+
+  .btn-group>.btn:first-child {
+    display: none;
+  }
+
+  .btn-group>.btn:nth-child(2) {
+    border-radius: 6px 0 0 6px !important;
+  }
+
+  .btn-group>.btn:last-child {
+    border-radius: 0 6px 6px 0 !important;
+  }
+}
+
+
 /* Radio play/pause buttons */
 [data-id="150"] {
 
@@ -92,11 +124,11 @@ div.mh {
 
   .btn-group {
     position: absolute !important;
-    right: -5px;
+    right: -25px;
     top: 0;
 
     > .btn {
-      padding: 6px 10px !important;
+      padding: 6px 6px !important;
     }
   }
 
