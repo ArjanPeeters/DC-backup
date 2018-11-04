@@ -55,28 +55,28 @@ buttons.buienradar = {
 buttons.webcam = {
   width: 12,
   isimage: true,
-  refresh: 2000,
-  image: 'http://127.0.0.1:7979/axis-cgi/jpg/image.cgi?camera=2&resolution=640x360'
+  refresh: 5000,
+  image: 'http://127.0.0.1:7979/axis-cgi/mjpg/video.cgi?user=admin&pwd=1Qazxsw2&camera=2&resolution=640x360'
 }
 
 buttons.webcam1 = {
   width: 12,
   isimage: true,
-  refresh: 2000,
-  image: 'http://127.0.0.1:7979/axis-cgi/jpg/image.cgi?camera=1&resolution=640x360'
+  refresh: 5000,
+  image: 'http://127.0.0.1:7979/axis-cgi/mjpg/video.cgi?user=admin&pwd=1Qazxsw2&camera=1&resolution=640x360'
 }
 
 buttons.webcam2 = {
   width: 12,
   isimage: true,
-  refresh: 2000,
-  image: 'http://127.0.0.1:7979/axis-cgi/jpg/image.cgi?camera=3&resolution=640x360'
+  refresh: 5000,
+  image: 'http://127.0.0.1:7979/axis-cgi/mjpg/video.cgi?user=admin&pwd=1Qazxsw2&camera=3&resolution=640x360'
 }
 buttons.webcam3 = {
   width: 12,
   isimage: true,
-  refresh: 2000,
-  image: 'http://127.0.0.1:7979/axis-cgi/jpg/image.cgi?camera=4&resolution=640x360'
+  refresh: 5000,
+  image: 'http://127.0.0.1:7979/axis-cgi/mjpg/video.cgi?user=admin&pwd=1Qazxsw2&camera=4&resolution=640x360'
 }
 
 // Scenes
@@ -173,33 +173,89 @@ blocks[145] = {
   hide_data: true
 }; // raam Sanne
 
-blocks[157] = {
-  width: 6,
+blocks[252] = {
+  width: 2,
   hide_data: true,
-  title: 'deur'
-}; //garage deur
-
-blocks[158] = {
-  width: 6,
-  hide_data: true,
-  title: 'overhead',
-  playsoundOn: 'sounds/doorbell.mp3',
-  gotoslide: 3
-}; //garage achterdeur
-
-blocks[150] = {
-  width: 12,
   title: '',
-  icon: 'fa-music fa-x2'
-}; //radio
+  icon: 'fa-female'
+}; //marijke
+
+blocks[245] = {
+  width: 2,
+  hide_data: true,
+  title: '',
+  icon: 'fa-male'
+}; //Arjan
+
+//Radio
+
+blocks['s17'] = {
+  width: 2,
+  title: '',
+  icon: 'fa-play',
+  hide_data: true
+}; //play
+
+blocks['s18'] = {
+  width: 2,
+  title: '',
+  icon: 'fa-pause',
+  hide_data: true
+}; //pauze
+
+blocks['s19'] = {
+  width: 2,
+  title: '',
+  icon: 'fa-volume-up',
+  hide_data: true
+}; //volume omhoog
+
+blocks['s20'] = {
+  width: 2,
+  title: '',
+  icon: 'fa-volume-down',
+  hide_data: true
+}; //volume omlaag
+
+blocks['s21'] = {
+  width: 2,
+  title: '',
+  icon: 'fa-headphones',
+  hide_data: true
+}; //play
+
+blocks['s16'] = {
+  width: 3,
+  icon: '',
+  hide_data: true
+}; //Qmusic
+
+blocks['s15'] = {
+  width: 3,
+  icon: '',
+  hide_data: true
+}; //538
+
+blocks['s14'] = {
+  width: 3,
+  icon: '',
+  hide_data: true
+}; //3fm
+
+blocks['s13'] = {
+  width: 3,
+  icon: '',
+  hide_data: true
+}; //NPO2
 
 blocks[242] = {
   width: 12,
   title: ''
 }; //radio selector
 
-blocks[154] = {
-  width: 12,
+blocks[254] = {
+  width: 8,
+  hide_data: true,
   title: '',
   icon: 'fa-sign-out'
 } //aanwezig
@@ -224,7 +280,7 @@ blocks['blocktitle_3'] = {
 
 blocks['blocktitle_4'] = {
   type: 'blocktitle',
-  title: 'Garage'
+  title: 'Thuis'
 };
 
 // kalenders
@@ -260,8 +316,15 @@ columns[2] = {
     65,
     102,
     17,
-    150,
-    242
+    's17',
+    's18',
+    's19',
+    's20',
+    's21',
+    's13',
+    's14',
+    's15',
+    's16'
   ]
 };
 
@@ -275,9 +338,9 @@ columns[3] = {
     198,
     203,
     'blocktitle_4',
-    157,
-    158,
-    154
+    245,
+    252,
+    254
   ]
 };
 

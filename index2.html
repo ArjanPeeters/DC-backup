@@ -29,22 +29,51 @@
 		<meta name="msapplication-square150x150logo" content="img/favicon/mediumtile.png" />
 		<meta name="msapplication-wide310x150logo" content="img/favicon/widetile.png" />
 		<meta name="msapplication-square310x310logo" content="img/favicon/largetile.png" />
-
+       
+       	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="css/fonts/opensans/open-sans.css" rel="stylesheet" type="text/css">
+		<link href="vendor/jquery/jquery-ui.css" rel="stylesheet">
+		
+		<script src="vendor/head.js"></script>
 		<title>Dashticz</title>
+
 	</head>
 
 	<body id="page-top">
-	
+		
+		<div id="loaderHolder">
+			<div class="loaderHeader">Dashticz v2 is loading...</div>
+			<div class="loader"></div>
+			<div id="hide" style="visibility: hidden">Timeout! Something is wrong please check your CONFIG.js<br>For more help visit <a href="http://www.domoticz.com/wiki/Dashticz_V2">Dashticz v2 wiki</a></div>
+		</div>
 		<div class="swiper-container">
 			<div class="contents swiper-wrapper"> </div>
         	<div class="swiper-pagination"></div>
 		</div>
 
-		<script src="vendor/jquery/jquery.min.js"></script>
 		<script>
-		var dashtype=2;		
-		$.ajax({url: 'js/main.js?v='+new Date().getTime(), async: false,dataType: "script"});
-		</script>
-
+			var dashtype=2;	
+			
+			//DO NOT EDIT BELOW
+			var customfolder = 'custom';
+			if(typeof(dashtype)!=='undefined' && parseFloat(dashtype)>1){
+				customfolder = 'custom_'+dashtype;
+			}
+			
+            var cache = new Date().getTime();
+			head.load(
+				"vendor/jquery/jquery.min.js",
+				"vendor/jquery/jquery-ui.js",
+				"vendor/jquery/touchpunch.js",
+				"vendor/bootstrap/js/bootstrap.min.js",
+				"vendor/plugins.js",
+				"vendor/moment.js",
+				"js/functions.js",
+				"js/main.js?v="+cache, function() {
+					loadFiles();
+				}
+			);
+        </script>
 	</body>
 </html>

@@ -4,6 +4,11 @@
 /custom_3
 /index3.html
 /custom_2/CONFIG_DEFAULT.js
+/custom/custom.js
+/custom/custom.css
+/custom/custom.css.map
+/_less/custom.less
+/custom/custom_DEFAULT*
 
 # App
 /app/platforms
