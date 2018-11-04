@@ -150,27 +150,32 @@ blocks[102] = {
 // sensoren
 blocks[125] = {
   width: 6,
-  hide_data: true
+  hide_data: true,
+  title: 'Keuken'
 }; // raam keuken
 
 blocks[130] = {
   width: 6,
-  hide_data: true
+  hide_data: true,
+  title: 'Daan'
 }; // raam daan
 
 blocks[203] = {
   width: 12,
-  hide_data: true
+  hide_data: true,
+  title: 'Slaapkamer'
 }; // raam slaapkamer
 
 blocks[198] = {
   width: 6,
-  hide_data: true
+  hide_data: true,
+  title: 'Fenna'
 }; // raam fenna
 
 blocks[145] = {
   width: 6,
-  hide_data: true
+  hide_data: true,
+  title: 'Sanne'
 }; // raam Sanne
 
 blocks[252] = {
